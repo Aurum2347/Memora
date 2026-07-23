@@ -1,0 +1,41 @@
+{
+  "name": "memora",
+  "version": "1.0.0",
+  "description": "Ну типо сиди пиши заметки",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "tsc && xcopy /E /I /Y src\\renderer\\* dist\\renderer\\ >nul 2>&1 && electron dist/main/index.js",
+    "build": "tsc && xcopy /E /I /Y src\\renderer\\* dist\\renderer\\ >nul 2>&1 && electron-builder --win portable"
+  },
+  "keywords": [],
+  "author": "Aurum2347",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron/rebuild": "^3.7.2",
+    "@types/node": "^20.0.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0",
+    "electron-rebuild": "^3.2.9",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "build": {
+    "appId": "com.memora.app",
+    "productName": "Memora",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "assets/icon.png"
+    }
+  },
+  "dependencies": {
+    "marked": "^18.0.6"
+  }
+}
